@@ -1,0 +1,3 @@
+module.exports=[95904,a=>{"use strict";var b=a.i(87924),c=a.i(72131);a.s(["DesignCover",0,function({src:a,alt:d,variant:e=0}){let[f,g]=(0,c.useState)(!1);return f?(0,b.jsxs)("div",{className:`dz-art dz-${e%3}`,role:"img","aria-label":d,children:[(0,b.jsx)("span",{className:"dz-frame f1"}),(0,b.jsx)("span",{className:"dz-frame f2"}),(0,b.jsx)("span",{className:"dz-frame f3"})]}):(0,b.jsx)("img",{className:"dz-img",src:a,alt:d,width:1200,height:700,loading:"lazy",onError:()=>g(!0)})}])}];
+
+//# sourceMappingURL=src_components_DesignCover_tsx_0oepsr1t8sp-x._.js.map

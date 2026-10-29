@@ -37,6 +37,14 @@
   },
   "dynamicRoutes": [
     {
+      "page": "/design/[slug]",
+      "regex": "^/design/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/design/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
       "page": "/projects/[slug]",
       "regex": "^/projects/([^/]+?)(?:/)?$",
       "routeKeys": {
