@@ -1,0 +1,3 @@
+module.exports=[23953,a=>{"use strict";var b=a.i(87924);a.s(["default",0,function({reset:a}){return(0,b.jsxs)("main",{className:"py-32 text-center",children:[(0,b.jsx)("h1",{className:"!text-4xl",children:"Something went wrong"}),(0,b.jsx)("p",{className:"sub",children:"We could not load this page. Please try again."}),(0,b.jsx)("button",{className:"btn btn-primary",onClick:a,children:"Try again"})]})}])}];
+
+//# sourceMappingURL=src_app_error_tsx_0ac07bj196djj._.js.map

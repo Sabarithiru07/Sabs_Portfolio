@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///D:/sabari/portfolio-static/src/app/error.tsx"],"sourcesContent":["'use client';\n\nexport default function ErrorBoundary({ reset }: { error: Error; reset: () => void }) {\n  return (\n    <main className=\"py-32 text-center\">\n      <h1 className=\"!text-4xl\">Something went wrong</h1>\n      <p className=\"sub\">We could not load this page. Please try again.</p>\n      <button className=\"btn btn-primary\" onClick={reset}>Try again</button>\n    </main>\n  );\n}\n"],"names":["ErrorBoundary","reset","className","onClick"],"mappings":";;;;;AAAA;;AAEe,SAASA,cAAc,EAAEC,KAAK,EAAuC;IAClF,qBACE,8OAAC;QAAKC,WAAU;;0BACd,8OAAC;gBAAGA,WAAU;0BAAY;;;;;;0BAC1B,8OAAC;gBAAEA,WAAU;0BAAM;;;;;;0BACnB,8OAAC;gBAAOA,WAAU;gBAAkBC,SAASF;0BAAO;;;;;;;;;;;;AAG1D"}}]
+}

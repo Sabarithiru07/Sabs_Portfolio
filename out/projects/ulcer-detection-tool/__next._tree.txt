@@ -1,0 +1,6 @@
+:HL["/_next/static/chunks/1rem3hs18o_h2.css","style"]
+:HL["/projects/ulcer-detection-tool.jpg","image"]
+3:[["children",{"s":"__PAGE__","h":160}]]
+2:[["children",{"s":{"n":"slug","t":"d","k":"ulcer-detection-tool","s":[]},"h":65632,"c":"$Q3"}]]
+1:[["children",{"s":"projects","h":131168,"c":"$Q2"}]]
+0:{"b":"xwYoC0mZCEiKMEpl1WezH","t":{"t":{"s":"","h":131152,"c":"$Q1"}}}

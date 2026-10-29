@@ -1,0 +1,5 @@
+
+User-agent: *
+Allow: /
+
+Sitemap: https://portfolio-frontend-asmj.onrender.com/sitemap.xml
