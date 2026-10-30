@@ -1,7 +1,21 @@
 
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
     <loc>https://sabarithiru-portfolio.onrender.com/</loc>
   </url>
+
+  <url>
+    <loc>https://sabarithiru-portfolio.onrender.com/portfolio/</loc>
+  </url>
+
+  <url>
+    <loc>https://sabarithiru-portfolio.onrender.com/services/website-development/</loc>
+  </url>
+
+  <url>
+    <loc>https://sabarithiru-portfolio.onrender.com/services/machine-learning/</loc>
+  </url>
+
 </urlset>
