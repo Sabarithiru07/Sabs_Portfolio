@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://portfolio-frontend-asmj.onrender.com/sitemap.xml
+Sitemap: https://sabarithiru-portfolio.onrender.com//sitemap.xml
