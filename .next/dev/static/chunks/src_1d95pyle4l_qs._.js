@@ -4229,28 +4229,21 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/src/lib/brevo.ts [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * ====================  BREVO SETTINGS  ====================
- * Put your values in a file called `.env.local` in the project root (never commit it):
- *
- *   NEXT_PUBLIC_BREVO_API_KEY=xkeysib-...your key...
- *   NEXT_PUBLIC_BREVO_SENDER_EMAIL=you@your-verified-domain.com   (must be a verified sender in Brevo)
- *   NEXT_PUBLIC_BREVO_TO_EMAIL=sabariarasu54@gmail.com            (where the messages arrive; optional, defaults to the resume email)
- *
- * IMPORTANT: this site is static (no server), so anything starting with NEXT_PUBLIC_ ends up in the browser and can be read by visitors.
- * To limit the risk, create a dedicated Brevo API key just for this form, and in Brevo > Security > Authorised IPs / domain
- * restrictions lock it down. For full safety put the key behind a tiny serverless function and set NEXT_PUBLIC_CONTACT_ENDPOINT instead.
- */ __turbopack_context__.s([
+__turbopack_context__.s([
     "BREVO",
     ()=>BREVO,
     "brevoReady",
     ()=>brevoReady
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+// NEXT_PUBLIC_ vars must be written out literally like this so Next.js can inline them at build time.
+const API_KEY = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_BREVO_API_KEY ?? '';
+const SENDER_EMAIL = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_BREVO_SENDER_EMAIL ?? '';
+const TO_EMAIL = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_BREVO_TO_EMAIL ?? '';
 const BREVO = {
-    apiKey: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_BREVO_API_KEY ?? '',
-    senderEmail: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_BREVO_SENDER_EMAIL ?? '',
-    toEmail: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_BREVO_TO_EMAIL ?? '',
+    apiKey: API_KEY.trim(),
+    senderEmail: SENDER_EMAIL.trim(),
+    toEmail: TO_EMAIL.trim(),
     senderName: 'Portfolio Contact Form',
     url: 'https://api.brevo.com/v3/smtp/email'
 };
@@ -4279,12 +4272,7 @@ class ContactError extends Error {
         super(message), this.fields = fields;
     }
 }
-/**
- * Delivery order:
- *  1. Brevo (set the keys in .env.local, see lib/brevo.ts)
- *  2. NEXT_PUBLIC_CONTACT_ENDPOINT (Formspree / Web3Forms ...)
- *  3. The visitor's email app (mailto), so the form always works.
- */ const ENDPOINT = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_CONTACT_ENDPOINT;
+const ENDPOINT = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_CONTACT_ENDPOINT;
 const esc = (t)=>t.replace(/[&<>"']/g, (c)=>({
             '&': '&amp;',
             '<': '&lt;',
@@ -4292,13 +4280,17 @@ const esc = (t)=>t.replace(/[&<>"']/g, (c)=>({
             '"': '&quot;',
             "'": '&#39;'
         })[c]);
+function openMailto(d, subject) {
+    window.location.href = `mailto:${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$content$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["profile"].email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`${d.message}\n\n${d.name} <${d.email}>`)}`;
+    return 'mailto';
+}
 async function sendContact(d) {
-    if (d.website) return 'sent'; // honeypot filled: pretend success, send nothing
+    if (d.website) return 'sent'; // honeypot
     const subject = `Portfolio message from ${d.name}`;
+    // 1) Brevo
     if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$brevo$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["brevoReady"])()) {
-        let res;
         try {
-            res = await fetch(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$brevo$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["BREVO"].url, {
+            const res = await fetch(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$brevo$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["BREVO"].url, {
                 method: 'POST',
                 headers: {
                     'api-key': __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$brevo$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["BREVO"].apiKey,
@@ -4325,38 +4317,41 @@ async function sendContact(d) {
                     textContent: `${d.message}\n\n${d.name} <${d.email}>`
                 })
             });
-        } catch  {
-            throw new ContactError('Network error. Please try again.');
+            if (res.ok) return 'sent';
+            if (res.status === 429) throw new ContactError('Too many messages. Try again later.');
+            const body = await res.text();
+            console.error(`[contact] Brevo failed ${res.status}:`, body);
+        } catch (e) {
+            if (e instanceof ContactError) throw e;
+            console.error('[contact] Brevo request error (CORS / network / blocked):', e);
         }
-        if (res.ok) return 'sent';
-        if (res.status === 429) throw new ContactError('Too many messages. Try again later.');
-        throw new ContactError('Could not send your message. Please try again, or email me directly.');
+        return openMailto(d, subject); // Brevo failed -> still let the visitor reach you
     }
-    if (!ENDPOINT) {
-        window.location.href = `mailto:${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$content$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["profile"].email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`${d.message}\n\n${d.name} <${d.email}>`)}`;
-        return 'mailto';
+    console.warn('[contact] Brevo env vars are EMPTY in this build. Add NEXT_PUBLIC_BREVO_* in Render and rebuild with cleared cache.');
+    // 2) Optional external endpoint
+    if (ENDPOINT) {
+        try {
+            const res = await fetch(ENDPOINT, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json'
+                },
+                body: JSON.stringify({
+                    name: d.name,
+                    email: d.email,
+                    subject,
+                    message: d.message
+                })
+            });
+            if (res.ok) return 'sent';
+            if (res.status === 429) throw new ContactError('Too many messages. Try again later.');
+        } catch (e) {
+            if (e instanceof ContactError) throw e;
+        }
     }
-    let res;
-    try {
-        res = await fetch(ENDPOINT, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                Accept: 'application/json'
-            },
-            body: JSON.stringify({
-                name: d.name,
-                email: d.email,
-                subject,
-                message: d.message
-            })
-        });
-    } catch  {
-        throw new ContactError('Network error. Please try again.');
-    }
-    if (res.ok) return 'sent';
-    if (res.status === 429) throw new ContactError('Too many messages. Try again later.');
-    throw new ContactError('Could not send your message. Please try again, or email me directly.');
+    // 3) mailto
+    return openMailto(d, subject);
 }
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);

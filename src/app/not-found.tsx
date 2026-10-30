@@ -10,7 +10,7 @@ export default function NotFound() {
       <p className="sub">The page you are looking for does not exist or has moved.</p>
       <div className="btn-row" style={{ justifyContent: 'center', marginTop: 20 }}>
         <Link className="btn btn-primary" href="/portfolio/">Go home</Link>
-        <Link className="btn btn-glass" href="/services/web-application-development">Services</Link>
+        <Link className="btn btn-glass" href="/portfolio/#services">Services</Link>
         <Link className="btn btn-glass" href="/portfolio/#projects">Projects</Link>
       </div>
     </main>

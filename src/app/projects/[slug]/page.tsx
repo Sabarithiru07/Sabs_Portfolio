@@ -78,7 +78,7 @@ export default async function ProjectPage({ params }: Props) {
         {more.map(m => <Link key={m.slug} href={`/projects/${m.slug}`} className="btn btn-glass btn-sm">{m.title} <ArrowRight size={16} /></Link>)}
       </div></div>
       <div className="doc-cta glass"><div><h2 style={{ margin: 0 }}>Need something similar?</h2><p className="sub" style={{ margin: '6px 0 0' }}>I build web applications and AI-powered tools as a freelancer.</p></div>
-        <div className="btn-row"><Link href="/services/web-application-development" className="btn btn-glass">See the service</Link><Link href="/portfolio/#contact" className="btn btn-primary">Start a project <ArrowRight size={18} /></Link></div></div>
+        <div className="btn-row"><Link href="/portfolio/#services" className="btn btn-glass">See the service</Link><Link href="/portfolio/#contact" className="btn btn-primary">Start a project <ArrowRight size={18} /></Link></div></div>
     </main>
   );
 }

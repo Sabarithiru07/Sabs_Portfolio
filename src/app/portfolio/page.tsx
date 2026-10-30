@@ -1,4 +1,4 @@
-import { AppWindow, Bot, Brain, Briefcase, Rocket, ArrowRight, ArrowUp, ArrowUpRight, BookOpen, Check, Download, GraduationCap, Globe, Mail, MapPin, Target, Award, Palette, Sparkles, Trophy, Phone, MessageCircle, type LucideIcon } from 'lucide-react';
+import { AppWindow, Bot, Brain, Eye, Briefcase, Rocket, ArrowRight, ArrowUp, ArrowUpRight, BookOpen, Check, Download, GraduationCap, Globe, Mail, MapPin, Target, Award, Palette, Sparkles, Trophy, Phone, MessageCircle, type LucideIcon } from 'lucide-react';
 import { profile, facts, skills, LEVELS, timeline, design, designProjects, marqueeSkills, stats } from '@/lib/content';
 import { SkillsMarquee } from '@/components/SkillsMarquee';
 import { TransitionLink } from '@/components/TransitionLink';
@@ -36,7 +36,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = pageMeta({ title: `${profile.title} Portfolio`, description: profile.intro, path: '/portfolio/' });
 const FACT_ICONS: Record<string, LucideIcon> = { pin: MapPin, grad: GraduationCap, target: Target, book: BookOpen };
 const ACH_ICONS: Record<string, LucideIcon> = { award: Award, grad: GraduationCap, rocket: Rocket, palette: Palette, sparkles: Sparkles, trophy: Trophy };
-const SERVICE_ICONS: Record<string, LucideIcon> = { globe: Globe, app: AppWindow };
+const SERVICE_ICONS: Record<string, LucideIcon> = { globe: Globe, app: AppWindow, brain: Brain, eye: Eye, bot: Bot };
 
 export default function PortfolioPage() {
   const showDesign = design.enabled && designProjects.length > 0;

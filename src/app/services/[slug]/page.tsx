@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { AppWindow, ArrowLeft, ArrowRight, Check, Globe, type LucideIcon } from 'lucide-react';
+import { AppWindow, ArrowLeft, ArrowRight, Bot, Brain, Check, Eye, Globe, type LucideIcon } from 'lucide-react';
 import { getService, services } from '@/lib/services';
 import { coverOf, fallbackProjects } from '@/lib/fallback';
 import { Reveal } from '@/components/Reveal';
@@ -10,7 +10,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { breadcrumbJsonLd, pageMeta, serviceJsonLd } from '@/lib/seo';
 
 type Props = { params: Promise<{ slug: string }> };
-const ICONS: Record<string, LucideIcon> = { globe: Globe, app: AppWindow };
+const ICONS: Record<string, LucideIcon> = { globe: Globe, app: AppWindow, brain: Brain, eye: Eye, bot: Bot };
 export const dynamicParams = false;
 export const generateStaticParams = () => services.map(s => ({ slug: s.slug }));
 
